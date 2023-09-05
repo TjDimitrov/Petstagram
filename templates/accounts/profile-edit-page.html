@@ -1,0 +1,47 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block page_content %}
+    <!-- Start Edit Profile Section -->
+    <div class="edit-delete">
+        <h2>Edit Profile</h2>
+        <!-- Start Edit Profile From -->
+        <form action="{% url 'profile edit' object.pk %}" method="POST">
+            <div class="label-input">
+                {{ form.first_name.label_tag }}
+                {{ form.first_name }}
+            </div>
+            <br>
+            <div class="label-input">
+                {{ form.last_name.label_tag }}
+                {{ form.last_name }}
+            </div>
+            <br>
+            <div class="label-input">
+                {{ form.username.label_tag }}
+                {{ form.username }}
+            </div>
+            <br>
+            <div class="label-input">
+                {{ form.email.label_tag }}
+                {{ form.email }}
+            </div>
+            <br>
+            <div class="label-input">
+                {{ form.profile_picture.label_tag }}
+                {{ form.profile_picture }}
+            </div>
+            <br>
+
+            <div class="label-input">
+                {{ form.gender.label_tag }}
+                {{ form.gender }}
+            </div>
+            {% csrf_token %}
+            <!-- Edit Profile Button -->
+            <button class="edit-btn" type="submit">Edit</button>
+        </form>
+        <!-- End Edit Profile Form -->
+
+    </div>
+    <!-- End Edit Profile Section -->
+{% endblock %}

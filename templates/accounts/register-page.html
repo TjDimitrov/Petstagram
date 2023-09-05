@@ -1,0 +1,36 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load custom_filters %}
+{% block page_content %}
+
+
+<!-- Start Register Section -->
+<div class="login-register-div">
+    <div class="login-register-box">
+        <h1>Petstagram</h1>
+
+        <!-- Start Register Form -->
+        <form action="{% url 'register' %}" method="POST">
+            {{ form.username.errors }}
+            {{ form.username|placeholder:'Username' }}
+            {{ form.email.errors }}
+            {{ form.email|placeholder:'Email' }}
+            {{ form.password1.errors }}
+            {{ form.password1|placeholder:'Password' }}
+            {{ form.password2.errors }}
+            {{ form.password2|placeholder:'Repeat password' }}
+            <!-- Register Button -->
+            <input type="hidden" value="{{ next }}" name="next" />
+            {% csrf_token %}
+            <button type="submit">Register</button>
+        </form>
+        <!-- End Register Form -->
+
+    </div>
+    <div class="second-option">
+
+        <!-- Link to Login Page -->
+        <p>Have an account? <a href="{% url 'login' %}">Log in</a></p>
+    </div>
+</div>
+{% endblock %}

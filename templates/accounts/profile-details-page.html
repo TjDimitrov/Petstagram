@@ -1,0 +1,201 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block page_content %}
+<!-- Start Profile Details Section -->
+<div class="profile">
+
+    <!-- Start Profile Personal Data Section -->
+    <div class="profile-data">
+        <div class="profile_img">
+            <div class="image">
+                <!-- Profile Image -->
+                <img src="{{ object.profile_picture }}">
+            </div>
+        </div>
+        <div class="personal">
+            <div class="edit">
+                <!-- User Username -->
+                <p>{{ object.username }}</p>
+
+                <!-- IF the viewer is the owner of the profile -->
+                <!-- Link to Edit Profile Page -->
+                <a href="{% url 'profile edit' pk=object.pk %}">
+                    <img alt="edit button" class="edit-img" src="{% static 'images/edit-pen-icon-6.jpg' %}">
+                </a>
+
+                <!-- Link to Delete Profile Page -->
+                <a href="{% url 'profile delete' pk=object.pk %}">
+                    <img alt="bin button" class="bin-img" src="{% static 'images/icon-remove-22.jpg' %}">
+                </a>
+                <!-- End IF the viewer is the owner of the profile -->
+
+            </div>
+            <div class="data">
+
+                <!-- Total Number of Photos by the User -->
+                <span>{{ object.photo_set.all|length }}</span>
+                <p>photos</p>
+
+                <!-- Total Number of Pets owned by the User -->
+                <span>{{ pets|length }}</span>
+                <p>pets</p>
+
+                <!-- Total Number of Likes for the User -->
+                <span>{{ total_likes }}</span>
+                <p>likes</p>
+            </div>
+            <!-- User First and Last Name IF Added -->
+            <h3 class="names">
+                {% if object.full_name is not None %}
+                {{ object.full_name }}
+                {% else %}
+                Empty
+                {% endif %}
+            </h3>
+            <!-- User Email Address -->
+            <p class="email">
+                {% if object.email %}
+                {{ object.email }}
+                {% endif %}
+            </p>
+            <!-- User Gender IF Added -->
+            <p class="gender">
+                {% if object.gender is not 'Do not show' %}
+                {{ object.gender }}
+                {% endif %}
+            </p>
+        </div>
+    </div>
+    <!-- End Profile Personal Data Section -->
+
+    <!-- Start Pets Data Section -->
+    <div class="pets">
+        <div class="statuses">
+
+            <!-- Start 1st Pet Details Page -->
+            <!-- Link to First Pet Details Page -->
+            <a href="#">
+                <div class="head-pet">
+                    <div class="status">
+                        <div class="image">
+                            <!-- Pet Image -->
+                            <img alt="pet img"
+                                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgoIHq82qLYnvomfz5ZkW5CLQ8VNxCyI-hUw&usqp=CAU">
+                        </div>
+                    </div>
+                    <!-- Pet Name -->
+                    <p>Sasho</p>
+                </div>
+            </a>
+            <!-- End 1st Pet Details Page -->
+
+            <!-- Start 2nd Pet Details Page -->
+            <!-- Link to Second Pet Details Page -->
+            <a href="#">
+                <div class="head-pet">
+                    <div class="status">
+                        <div class="image">
+                            <!-- Pet Image -->
+                            <img alt="pet img"
+                                 src="https://cdn.pixabay.com/photo/2016/12/13/05/15/puppy-1903313__340.jpg">
+                        </div>
+                    </div>
+                    <!-- Pet Name -->
+                    <p>Todi</p>
+                </div>
+            </a>
+            <!-- End 2nd Pet Details Page -->
+
+            <!-- Start 3rd Pet Details Page -->
+            <!-- Link to Pet Details Page -->
+            <a href="#">
+                <div class="head-pet">
+                    <div class="status">
+                        <div class="image">
+                            <img alt="pet img"
+                                 src="https://images.unsplash.com/photo-1611003228941-98852ba62227?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YmFieSUyMGRvZ3xlbnwwfHwwfHw%3D&w=1000&q=80">
+                        </div>
+                    </div>
+                    <p>Mihail</p>
+                </div>
+            </a>
+            <!-- End 3rd Pet Details Page -->
+
+            <!-- Start 4th Pet Details Page -->
+            <!-- Link to Pet Details Page -->
+            <a href="#">
+                <div class="head-pet">
+                    <div class="status">
+                        <div class="image">
+                            <img alt="pet img"
+                                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Cat03.jpg/1200px-Cat03.jpg">
+                        </div>
+                    </div>
+                    <p>Petar</p>
+                </div>
+            </a>
+            <!-- End 4th Pet Details Page -->
+
+            <!-- Start 5th Pet Details Page -->
+            <!-- Link to Pet Details Page -->
+            <a href="#">
+                <div class="head-pet">
+                    <div class="status">
+                        <div class="image">
+                            <img alt="pet img"
+                                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdKYe00NaD5SQjIMvXYPssq0r1dXJggL3ZIg&usqp=CAU">
+                        </div>
+                    </div>
+                    <p>Stamat</p>
+                </div>
+            </a>
+            <!-- End 5th Pet Details Page -->
+
+            <!-- Start 6th Pet Details Page -->
+            <!-- Link to Pet Details Page -->
+            <a href="#">
+                <div class="head-pet">
+                    <div class="status">
+                        <div class="image">
+                            <img alt="pet img"
+                                 src="https://cf.ltkcdn.net/small-pets/images/orig/278587-1600x1066-goldfish-swimming-in-fish-tank.jpg">
+                        </div>
+                    </div>
+                    <p>Toni</p>
+                </div>
+            </a>
+            <!-- End 6th Pet Details Page -->
+
+            <!-- Start 7th Pet Details Page -->
+            <!-- Link to Pet Details Page -->
+            <a href="#">
+                <div class="head-pet">
+                    <div class="status">
+                        <div class="image">
+                            <img alt="pet img"
+                                 src="https://i.pinimg.com/736x/01/6f/72/016f72c5812e1b8f71bdbf19d8c7558b.jpg">
+                        </div>
+                    </div>
+                    <p>Daisy</p>
+                </div>
+            </a>
+            <!-- End 7th Pet Details Page -->
+
+        </div>
+    </div>
+    <!-- End Pets Data Section -->
+
+    <!-- Start Last Uploaded Photos Section -->
+    <div class="pet-photos">
+        {% for pet in pets %}
+        <!-- Link to Last Uploaded Pet Photo -->
+            <a href="{% url 'details pet' username=object.username pet_slug=pet.slug %}">
+                <!-- Pet Photo -->
+                <img alt="pet img" src="{{ pet.personal_photo }}">
+            </a>
+        {% endfor %}
+    </div>
+    <!-- End Last Uploaded Photos Section -->
+</div>
+<!-- End Profile Details Section -->
+{% endblock %}
